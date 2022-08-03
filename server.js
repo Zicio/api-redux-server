@@ -15,11 +15,13 @@ let services = [
     id: uuidv4(),
     name: "Купить ноутбук",
     price: "20000",
+    content: "Ноутбук LENOVO",
   },
   {
     id: uuidv4(),
     name: "Заменить стекло",
     price: "2000",
+    content: "Стекло оригинал",
   },
 ];
 

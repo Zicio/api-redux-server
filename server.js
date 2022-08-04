@@ -39,26 +39,15 @@ router.get("/services", async (ctx, next) => {
   }
 });
 
-// router.post("/posts", async (ctx, next) => {
-//   const data = JSON.parse(ctx.request.body);
-//   const { id, content } = data;
-//   console.log(id);
-//   if (id !== 0) {
-//     posts = posts.map((o) => (o.id !== id ? o : { ...o, content: content }));
-//     ctx.response.status = 204;
-//     return;
-//   }
-
-//   posts.push({
-//     ...data,
-//     id: uuidv4(),
-//     author: author,
-//     photo: photo,
-//     created: Date.now(),
-//   });
-//   console.log(posts);
-//   ctx.response.status = 204;
-// });
+router.post("/services", async (ctx, next) => {
+  const data = JSON.parse(ctx.request.body);
+  const { id } = data;
+  if (id !== 0) {
+    services = services.map((o) => (o.id !== id ? o : data));
+    ctx.response.status = 204;
+    return;
+  }
+});
 
 router.delete("/services", async (ctx, next) => {
   const serviceId = ctx.request.query.id;

@@ -5,9 +5,13 @@ const cors = require("koa2-cors");
 const koaBody = require("koa-body");
 const { v4: uuidv4 } = require("uuid");
 
+const options = {
+  origin: "*",
+};
+
 const app = new Koa();
 
-app.use(cors());
+app.use(cors(options));
 app.use(koaBody({ json: true, urlencoded: true }));
 
 let services = [

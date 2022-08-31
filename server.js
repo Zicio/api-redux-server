@@ -43,7 +43,7 @@ router.get("/services", async (ctx, next) => {
   }
 });
 
-router.post("/services", async (ctx, next) => {
+router.put("/services", async (ctx, next) => {
   const data = JSON.parse(ctx.request.body);
   const { id } = data;
   if (id !== 0) {

@@ -62,6 +62,22 @@ router.delete("/services", async (ctx, next) => {
   ctx.response.status = 204;
 });
 
+router.post("/services", async (ctx, next) => {
+  const data = JSON.parse(ctx.request.body);
+  const { id } = data;
+  if (!id) {
+    const newService = {
+      id: uuidv4(),
+      name: data.name,
+      price: data.price,
+      content: data.content,
+    };
+    services.push(newService);
+    ctx.response.status = 204;
+    return;
+  }
+});
+
 app.use(router.routes()).use(router.allowedMethods());
 
 const port = process.env.PORT || 7777;
